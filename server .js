@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const smsRoute = require('./routes/smsRoute');
-const { append } = require('vary');
-
+require("dotenv").config();
 
 const app = express();
 //middlewear
@@ -22,6 +21,6 @@ app.post("/email",(req,res) =>{
 
 
 //start server
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('server is working');
 })
